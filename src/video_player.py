@@ -149,7 +149,9 @@ class VideoPlayer:
         playlistIndex = self.get_playlist_index(playlist_name)
         if playlistIndex is None:
             # Playlist with the input name is not found
-            print("Cannot add video to " + playlist_name + " : Playlist does not exist")
+            print("Cannot add video to " + playlist_name + ": Playlist does not exist")
+        elif self.get_title(video_id) is None:
+            print("Cannot add video to " + playlist_name + ": Video does not exist")
         else:
             playlist = self._playlists[playlistIndex]
             if video_id in playlist.get_videos():
@@ -169,8 +171,18 @@ class VideoPlayer:
 
     def show_all_playlists(self):
         """Display all playlists."""
-
-        print("show_all_playlists needs implementation")
+        # TODO: show all playlists
+        # TODO: list has to be sorted
+        playlistDisplay = []
+        for playlist in self._playlists:
+            playlistDisplay.append(playlist.get_name())
+        # TODO: if no playlists, no playlist to show - test_show_all_playlists_no_playlists_exist
+        if not playlistDisplay:
+            print("No playlists exist yet")
+        else:
+            print("Showing all playlists:")
+            for elem in sorted(playlistDisplay):
+                print(elem)
 
     def show_playlist(self, playlist_name):
         """Display all videos in a playlist with a given name.
