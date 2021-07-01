@@ -1,0 +1,239 @@
+"""A video player class."""
+
+from .video_library import VideoLibrary
+from .video_playlist import Playlist
+import random
+
+
+class VideoPlayer:
+    """A class used to represent a Video Player."""
+
+    def __init__(self):
+        self._video_library = VideoLibrary()
+        self._current_video_id = None  # the video_id of the playing Video object, is a string
+        self._video_stopped = False  # Boolean status variable indicating whether current video is stopped
+        self._playlists = []  # is a List<Playlist>
+
+    def number_of_videos(self):
+        num_videos = len(self._video_library.get_all_videos())
+        print(f"{num_videos} videos in the library")
+
+    def show_all_videos(self):
+        """Returns all videos."""
+        videoList = []
+        print("Here's a list of all available videos:")
+        all_videos = self._video_library.get_all_videos()
+        for elem in all_videos:
+            tagS = ""
+            for tag in elem.tags:
+                tagS += tag + " "
+            tagS = tagS.strip()
+            elemVideo = elem.title + " (" + elem.video_id + ") [" + tagS + "]"  # String representation of video info
+            videoList.append(elemVideo)
+        videoList = sorted(videoList)
+        for videoInfo in videoList:
+            print(videoInfo)
+
+    def play_video(self, video_id):
+        """Plays the respective video.
+
+        Args:
+            video_id: The video_id to be played.
+        """
+        currentVideoInfo = self._video_library.get_video(video_id)
+        if currentVideoInfo is None:  # if input is an invalid id
+            print("Cannot play video: Video does not exist")
+        else:  # if a valid video_id is input
+            if self._video_stopped:
+                self.stop_video()
+                self._video_stopped = False
+            if self._current_video_id is not None:
+                self.stop_video()
+            self._current_video_id = video_id
+            currentVideoTitle = currentVideoInfo.title
+            print("Playing video: " + currentVideoTitle)
+
+    def stop_video(self):
+        """Stops the current video."""
+        if self._current_video_id is None:
+            print("Cannot stop video: No video is currently playing")
+        else:
+            currentVideoTitle = self.get_title(self._current_video_id)
+            print("Stopping video: " + currentVideoTitle)
+            self._current_video_id = None
+
+    def play_random_video(self):
+        """Plays a random video from the video library."""
+        VideoList = self._video_library.get_all_videos()
+        VideoIDList = []
+        for elem in VideoList:
+            VideoIDList.append(elem.video_id)
+        randomVideoID = random.choice(VideoIDList)
+        self.play_video(randomVideoID)
+
+    def pause_video(self):
+        """Pauses the current video."""
+
+        if self._video_stopped:
+            title = self.get_title(self._current_video_id)
+            print("Video already paused: " + title)
+        elif self._current_video_id is None:
+            print("Cannot pause video: No video is currently playing")
+        else:
+            self._video_stopped = True
+            title = self.get_title(self._current_video_id)
+            print("Pausing video: "+title)
+
+    def continue_video(self):
+        """Resumes playing the current video."""
+        if self._current_video_id is None:
+            print("Cannot continue video: No video is currently playing")
+        elif not self._video_stopped:
+            print("Cannot continue video: Video is not paused")
+        else:
+            self._video_stopped = False
+            print("Continuing video: "+self.get_title(self._current_video_id))
+
+    def show_playing(self):
+        """Displays video currently playing."""
+        title = self.get_title(self._current_video_id)
+        if title is None:
+            print("No video is currently playing")
+        else:
+            id = self._current_video_id
+            tagS = ""
+            for tag in self.get_tags(id):
+                tagS += tag + " "
+            tagS = tagS.strip()
+            # elemVideo = elem.title + " (" + elem.video_id + ") [" + tagS + "]"
+            message = "Currently playing: " + title + " (" + id + ") [" + tagS + "]"
+            if self._video_stopped:
+                message += " - PAUSED"
+            print(message)
+
+    # return video_title given video_id, none if invalid id
+    def get_title(self, video_id):
+        currentVideoInfo = self._video_library.get_video(video_id)
+        if currentVideoInfo is None:
+            return None
+        else:
+            return currentVideoInfo.title
+
+    def get_tags(self, video_id):  # return tags(list of string) given id
+        currentVideoInfo = self._video_library.get_video(video_id)
+        return currentVideoInfo.tags
+
+    def create_playlist(self, playlist_name):
+        """Creates a playlist with a given name.
+
+        Args:
+            playlist_name: The playlist name.
+        """
+        NAME = playlist_name.upper()  # capitalised name for uniformity
+        # comparison of newPlaylist with all existing playlists
+        for elem in self._playlists:
+            if elem.name.upper() == NAME:
+                print("Cannot create playlist: A playlist with the same name already exists")
+                return None
+        newPlaylist = Playlist(playlist_name)
+        print("Successfully created new playlist: "+playlist_name)
+        self._playlists.append(newPlaylist)
+
+    def add_to_playlist(self, playlist_name, video_id):
+        """Adds a video to a playlist with a given name.
+
+        Args:
+            playlist_name: The playlist name.
+            video_id: The video_id to be added.
+        """
+        playlistIndex = self.get_playlist_index(playlist_name)
+        if playlistIndex is None:
+            # Playlist with the input name is not found
+            print("Cannot add video to " + playlist_name + " : Playlist does not exist")
+        else:
+            playlist = self._playlists[playlistIndex]
+            if video_id in playlist.get_videos():
+                print("Cannot add video to " + playlist_name + ": Video already added")
+            else:
+                playlist.add_video(video_id)
+                print("Added video to " + playlist_name + ": " + self.get_title(video_id))
+
+    def get_playlist_index(self, playlist_name):
+        # get the index of given name in self._playlists
+        for playlist in self._playlists:
+            if playlist_name.upper() == playlist.get_name().upper():
+                return self._playlists.index(playlist)
+        return None
+
+
+
+    def show_all_playlists(self):
+        """Display all playlists."""
+
+        print("show_all_playlists needs implementation")
+
+    def show_playlist(self, playlist_name):
+        """Display all videos in a playlist with a given name.
+
+        Args:
+            playlist_name: The playlist name.
+        """
+        print("show_playlist needs implementation")
+
+    def remove_from_playlist(self, playlist_name, video_id):
+        """Removes a video to a playlist with a given name.
+
+        Args:
+            playlist_name: The playlist name.
+            video_id: The video_id to be removed.
+        """
+        print("remove_from_playlist needs implementation")
+
+    def clear_playlist(self, playlist_name):
+        """Removes all videos from a playlist with a given name.
+
+        Args:
+            playlist_name: The playlist name.
+        """
+        print("clears_playlist needs implementation")
+
+    def delete_playlist(self, playlist_name):
+        """Deletes a playlist with a given name.
+
+        Args:
+            playlist_name: The playlist name.
+        """
+        print("deletes_playlist needs implementation")
+
+    def search_videos(self, search_term):
+        """Display all the videos whose titles contain the search_term.
+
+        Args:
+            search_term: The query to be used in search.
+        """
+        print("search_videos needs implementation")
+
+    def search_videos_tag(self, video_tag):
+        """Display all videos whose tags contains the provided tag.
+
+        Args:
+            video_tag: The video tag to be used in search.
+        """
+        print("search_videos_tag needs implementation")
+
+    def flag_video(self, video_id, flag_reason=""):
+        """Mark a video as flagged.
+
+        Args:
+            video_id: The video_id to be flagged.
+            flag_reason: Reason for flagging the video.
+        """
+        print("flag_video needs implementation")
+
+    def allow_video(self, video_id):
+        """Removes a flag from a video.
+
+        Args:
+            video_id: The video_id to be allowed again.
+        """
+        print("allow_video needs implementation")
