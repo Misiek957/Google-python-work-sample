@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5df5251-a8b3-4247-ae8c-c5198c00eb84" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/python.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/video_library.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/video_library.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/video_player.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/video_player.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/video_playlist.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/video_playlist.py" afterDir="false" />
+    </list>
+    <list id="1e13ad2a-6c1e-4f38-ba52-b14adb371876" name="Changes by Misio" comment="">
+      <change beforePath="$PROJECT_DIR$/src/video_player.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/video_player.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,15 +18,31 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/video_player.py">
+      <ranges>
+        <range start1="15" end1="15" start2="15" end2="52" changelist="1e13ad2a-6c1e-4f38-ba52-b14adb371876" />
+        <range start1="112" end1="124" start2="149" end2="149" changelist="1e13ad2a-6c1e-4f38-ba52-b14adb371876" />
+        <range start1="161" end1="170" start2="186" end2="186" changelist="d5df5251-a8b3-4247-ae8c-c5198c00eb84" />
+        <range start1="173" end1="175" start2="189" end2="189" changelist="1e13ad2a-6c1e-4f38-ba52-b14adb371876" />
+        <range start1="178" end1="179" start2="192" end2="192" changelist="1e13ad2a-6c1e-4f38-ba52-b14adb371876" />
+        <range start1="180" end1="180" start2="193" end2="194" changelist="1e13ad2a-6c1e-4f38-ba52-b14adb371876" />
+        <range start1="192" end1="193" start2="206" end2="218" changelist="d5df5251-a8b3-4247-ae8c-c5198c00eb84" />
+        <range start1="201" end1="202" start2="226" end2="229" changelist="d5df5251-a8b3-4247-ae8c-c5198c00eb84" />
+      </ranges>
+    </file>
+  </component>
   <component name="ProjectId" id="1uiHrhYeRhzcY3RoegrXclDLDmC" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/test/videolibrary_test.py" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -161,5 +178,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

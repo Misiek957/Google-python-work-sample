@@ -11,6 +11,10 @@ class Playlist:
     def add_video(self, video_id):
         self.videos.append(video_id)
 
+    def remove_video(self, video_id):
+        self.videos.remove(video_id)
+
+
     def get_name(self):
         return self.name
 

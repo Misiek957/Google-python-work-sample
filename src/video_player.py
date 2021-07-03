@@ -14,6 +14,43 @@ class VideoPlayer:
         self._video_stopped = False  # Boolean status variable indicating whether current video is stopped
         self._playlists = []  # is a List<Playlist>
 
+    # return video_title given video_id, none if invalid id
+    def get_title(self, video_id):
+        currentVideoInfo = self._video_library.get_video(video_id)
+        if currentVideoInfo is None:
+            return None
+        else:
+            return currentVideoInfo.title
+
+    def get_tags(self, video_id):  # return tags(list of string) given id
+        currentVideoInfo = self._video_library.get_video(video_id)
+        return currentVideoInfo.tags
+
+    # get the index of given name in self._playlists
+    def get_playlist_index(self, playlist_name):
+        for playlist in self._playlists:
+            if playlist_name.upper() == playlist.get_name().upper():
+                return self._playlists.index(playlist)
+        return None
+
+    # returns a playlist object
+    def get_playlist(self, playlist_name):
+        index = self.get_playlist_index(playlist_name)
+        return self._playlists[index]
+
+    # return a string representation of a video
+    def get_video_info_string(self,video_id):
+        video = self._video_library.get_video(video_id)
+        tag_string = ""
+        for tag in video.tags:
+            tag_string += tag + " "
+        tag_string = tag_string.strip()
+        result = video.title + " (" + video.video_id + ") [" + tag_string + "]"
+        return result
+
+
+# ------------------------ ↑ customised functions ↑ -----------------------------
+
     def number_of_videos(self):
         num_videos = len(self._video_library.get_all_videos())
         print(f"{num_videos} videos in the library")
@@ -111,18 +148,6 @@ class VideoPlayer:
                 message += " - PAUSED"
             print(message)
 
-    # return video_title given video_id, none if invalid id
-    def get_title(self, video_id):
-        currentVideoInfo = self._video_library.get_video(video_id)
-        if currentVideoInfo is None:
-            return None
-        else:
-            return currentVideoInfo.title
-
-    def get_tags(self, video_id):  # return tags(list of string) given id
-        currentVideoInfo = self._video_library.get_video(video_id)
-        return currentVideoInfo.tags
-
     def create_playlist(self, playlist_name):
         """Creates a playlist with a given name.
 
@@ -160,24 +185,13 @@ class VideoPlayer:
                 playlist.add_video(video_id)
                 print("Added video to " + playlist_name + ": " + self.get_title(video_id))
 
-    def get_playlist_index(self, playlist_name):
-        # get the index of given name in self._playlists
-        for playlist in self._playlists:
-            if playlist_name.upper() == playlist.get_name().upper():
-                return self._playlists.index(playlist)
-        return None
-
-
-
     def show_all_playlists(self):
         """Display all playlists."""
-        # TODO: show all playlists
-        # TODO: list has to be sorted
         playlistDisplay = []
         for playlist in self._playlists:
             playlistDisplay.append(playlist.get_name())
-        # TODO: if no playlists, no playlist to show - test_show_all_playlists_no_playlists_exist
         if not playlistDisplay:
+            # if no playlists, no playlist to show - test_show_all_playlists_no_playlists_exist
             print("No playlists exist yet")
         else:
             print("Showing all playlists:")
@@ -190,7 +204,18 @@ class VideoPlayer:
         Args:
             playlist_name: The playlist name.
         """
-        print("show_playlist needs implementation")
+        playlist_index = self.get_playlist_index(playlist_name)
+        if playlist_index is None:  # Playlist with the input name is not found
+            print("Cannot show playlist ")
+        else:
+            print("Showing playlist: "+playlist_name)
+            playlist = self._playlists[playlist_index]
+            video_ids = playlist.get_videos()
+            if len(video_ids) == 0:  # no videos in videos[]
+                print("No videos here yet")
+            else:
+                for video_id in video_ids:
+                    print(self.get_video_info_string(video_id))
 
     def remove_from_playlist(self, playlist_name, video_id):
         """Removes a video to a playlist with a given name.
@@ -199,7 +224,9 @@ class VideoPlayer:
             playlist_name: The playlist name.
             video_id: The video_id to be removed.
         """
-        print("remove_from_playlist needs implementation")
+        playlist = self.get_playlist(playlist_name)
+        playlist.remove_video(video_id)
+        print("Removed video from " + playlist_name + ": "+self.get_title(video_id))
 
     def clear_playlist(self, playlist_name):
         """Removes all videos from a playlist with a given name.
