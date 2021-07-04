@@ -11,9 +11,14 @@ class Playlist:
     def add_video(self, video_id):
         self.videos.append(video_id)
 
+    # return True on success, False otherwise
     def remove_video(self, video_id):
-        self.videos.remove(video_id)
-
+        try:
+            self.videos.remove(video_id)
+            return True
+        except ValueError:
+            print("Cannot remove video from "+self.name+": Video is not in playlist")
+            return False
 
     def get_name(self):
         return self.name

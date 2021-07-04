@@ -3,6 +3,7 @@
 from .video_library import VideoLibrary
 from .video_playlist import Playlist
 import random
+import sys, os
 
 
 class VideoPlayer:
@@ -47,6 +48,14 @@ class VideoPlayer:
         tag_string = tag_string.strip()
         result = video.title + " (" + video.video_id + ") [" + tag_string + "]"
         return result
+
+    # Disable print
+    def block_print(self):
+        sys.stdout = open(os.devnull, 'w')
+
+    # Restore print
+    def enable_print(self):
+        sys.stdout = sys.__stdout__
 
 
 # ------------------------ ↑ customised functions ↑ -----------------------------
@@ -206,7 +215,7 @@ class VideoPlayer:
         """
         playlist_index = self.get_playlist_index(playlist_name)
         if playlist_index is None:  # Playlist with the input name is not found
-            print("Cannot show playlist ")
+            print("Cannot show playlist "+playlist_name+": Playlist does not exist")
         else:
             print("Showing playlist: "+playlist_name)
             playlist = self._playlists[playlist_index]
@@ -224,9 +233,16 @@ class VideoPlayer:
             playlist_name: The playlist name.
             video_id: The video_id to be removed.
         """
-        playlist = self.get_playlist(playlist_name)
-        playlist.remove_video(video_id)
-        print("Removed video from " + playlist_name + ": "+self.get_title(video_id))
+        playlist_index = self.get_playlist_index(playlist_name)
+        if playlist_index is None:
+            # Playlist with the input name is not found
+            print("Cannot remove video from " + playlist_name + ": Playlist does not exist")
+        else:
+            playlist = self.get_playlist(playlist_name)
+            if self.get_title(video_id) is None:
+                print("Cannot remove video from " + playlist_name + ": Video does not exist")
+            elif playlist.remove_video(video_id):
+                print("Removed video from " + playlist_name + ": "+self.get_title(video_id))
 
     def clear_playlist(self, playlist_name):
         """Removes all videos from a playlist with a given name.
@@ -234,7 +250,17 @@ class VideoPlayer:
         Args:
             playlist_name: The playlist name.
         """
-        print("clears_playlist needs implementation")
+        playlist_index = self.get_playlist_index(playlist_name)
+        if playlist_index is None:
+            # Playlist with the input name is not found
+            print("Cannot clear playlist " + playlist_name + ": Playlist does not exist")
+            return
+        playlist = self.get_playlist(playlist_name)
+        self.block_print()
+        for video_id in playlist.videos:
+            self.remove_from_playlist(playlist_name, video_id)
+        self.enable_print()
+        print('Successfully removed all videos from '+playlist_name)
 
     def delete_playlist(self, playlist_name):
         """Deletes a playlist with a given name.
@@ -242,7 +268,14 @@ class VideoPlayer:
         Args:
             playlist_name: The playlist name.
         """
-        print("deletes_playlist needs implementation")
+        playlist_index = self.get_playlist_index(playlist_name)
+        if playlist_index is None:
+            print('Cannot delete playlist '+playlist_name+': Playlist does not exist')
+        else:
+            self._playlists.pop(playlist_index)
+            print('Deleted playlist: '+playlist_name)
+
+
 
     def search_videos(self, search_term):
         """Display all the videos whose titles contain the search_term.

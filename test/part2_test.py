@@ -116,6 +116,15 @@ def test_show_playlist(capfd):
     assert "Amazing Cats (amazing_cats_video_id) [#cat #animal]" in lines[5]
 
 
+def test_show_playlist_nonexistent_playlist(capfd):
+    player = VideoPlayer()
+    player.show_playlist("another_playlist")
+    out, err = capfd.readouterr()
+    lines = out.splitlines()
+    assert len(lines) == 1
+    assert "Cannot show playlist another_playlist: Playlist does not exist" in lines[0]
+
+
 def test_remove_from_playlist_then_re_add(capfd):
     player = VideoPlayer()
     player.create_playlist("MY_playlist")
@@ -130,15 +139,6 @@ def test_remove_from_playlist_then_re_add(capfd):
     assert "Showing playlist: my_playLIST" in lines[5]
     assert "Life at Google (life_at_google_video_id) [#google #career]" in lines[6]
     assert "Amazing Cats (amazing_cats_video_id) [#cat #animal]" in lines[7]
-
-
-def test_show_playlist_nonexistent_playlist(capfd):
-    player = VideoPlayer()
-    player.show_playlist("another_playlist")
-    out, err = capfd.readouterr()
-    lines = out.splitlines()
-    assert len(lines) == 1
-    assert "Cannot show playlist another_playlist: Playlist does not exist" in lines[0]
 
 
 def test_remove_from_playlist(capfd):

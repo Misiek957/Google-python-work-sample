@@ -3,12 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d5df5251-a8b3-4247-ae8c-c5198c00eb84" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/video_library.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/video_library.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/video_player.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/video_player.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/video_playlist.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/video_playlist.py" afterDir="false" />
     </list>
     <list id="1e13ad2a-6c1e-4f38-ba52-b14adb371876" name="Changes by Misio" comment="">
       <change beforePath="$PROJECT_DIR$/src/video_player.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/video_player.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/part2_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/part2_test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,14 +21,12 @@
   <component name="LineStatusTrackerManager">
     <file path="$PROJECT_DIR$/src/video_player.py">
       <ranges>
-        <range start1="15" end1="15" start2="15" end2="52" changelist="1e13ad2a-6c1e-4f38-ba52-b14adb371876" />
-        <range start1="112" end1="124" start2="149" end2="149" changelist="1e13ad2a-6c1e-4f38-ba52-b14adb371876" />
-        <range start1="161" end1="170" start2="186" end2="186" changelist="d5df5251-a8b3-4247-ae8c-c5198c00eb84" />
-        <range start1="173" end1="175" start2="189" end2="189" changelist="1e13ad2a-6c1e-4f38-ba52-b14adb371876" />
-        <range start1="178" end1="179" start2="192" end2="192" changelist="1e13ad2a-6c1e-4f38-ba52-b14adb371876" />
-        <range start1="180" end1="180" start2="193" end2="194" changelist="1e13ad2a-6c1e-4f38-ba52-b14adb371876" />
-        <range start1="192" end1="193" start2="206" end2="218" changelist="d5df5251-a8b3-4247-ae8c-c5198c00eb84" />
-        <range start1="201" end1="202" start2="226" end2="229" changelist="d5df5251-a8b3-4247-ae8c-c5198c00eb84" />
+        <range start1="5" end1="5" start2="5" end2="6" changelist="1e13ad2a-6c1e-4f38-ba52-b14adb371876" />
+        <range start1="49" end1="49" start2="50" end2="58" changelist="1e13ad2a-6c1e-4f38-ba52-b14adb371876" />
+        <range start1="208" end1="209" start2="217" end2="218" changelist="1e13ad2a-6c1e-4f38-ba52-b14adb371876" />
+        <range start1="226" end1="229" start2="235" end2="245" changelist="d5df5251-a8b3-4247-ae8c-c5198c00eb84" />
+        <range start1="236" end1="237" start2="252" end2="263" changelist="1e13ad2a-6c1e-4f38-ba52-b14adb371876" />
+        <range start1="244" end1="245" start2="270" end2="278" changelist="1e13ad2a-6c1e-4f38-ba52-b14adb371876" />
       </ranges>
     </file>
   </component>
@@ -44,7 +42,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/test/videolibrary_test.py" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RunManager" selected="Python tests.Part 2 Test">
     <configuration name="Run" type="PythonConfigurationType" factoryName="Python">
