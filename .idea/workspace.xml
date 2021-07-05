@@ -4,11 +4,10 @@
     <list default="true" id="d5df5251-a8b3-4247-ae8c-c5198c00eb84" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/video_player.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/video_player.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/video_playlist.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/video_playlist.py" afterDir="false" />
     </list>
     <list id="1e13ad2a-6c1e-4f38-ba52-b14adb371876" name="Changes by Misio" comment="">
       <change beforePath="$PROJECT_DIR$/src/video_player.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/video_player.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/part2_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/part2_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/part3_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/part3_test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,12 +20,24 @@
   <component name="LineStatusTrackerManager">
     <file path="$PROJECT_DIR$/src/video_player.py">
       <ranges>
-        <range start1="5" end1="5" start2="5" end2="6" changelist="1e13ad2a-6c1e-4f38-ba52-b14adb371876" />
-        <range start1="49" end1="49" start2="50" end2="58" changelist="1e13ad2a-6c1e-4f38-ba52-b14adb371876" />
-        <range start1="208" end1="209" start2="217" end2="218" changelist="1e13ad2a-6c1e-4f38-ba52-b14adb371876" />
-        <range start1="226" end1="229" start2="235" end2="245" changelist="d5df5251-a8b3-4247-ae8c-c5198c00eb84" />
-        <range start1="236" end1="237" start2="252" end2="263" changelist="1e13ad2a-6c1e-4f38-ba52-b14adb371876" />
-        <range start1="244" end1="245" start2="270" end2="278" changelist="1e13ad2a-6c1e-4f38-ba52-b14adb371876" />
+        <range start1="42" end1="43" start2="42" end2="43" changelist="d5df5251-a8b3-4247-ae8c-c5198c00eb84" />
+        <range start1="51" end1="53" start2="51" end2="53" changelist="d5df5251-a8b3-4247-ae8c-c5198c00eb84" />
+        <range start1="55" end1="57" start2="55" end2="57" changelist="d5df5251-a8b3-4247-ae8c-c5198c00eb84" />
+        <range start1="59" end1="61" start2="59" end2="60" changelist="d5df5251-a8b3-4247-ae8c-c5198c00eb84" />
+        <range start1="71" end1="72" start2="70" end2="71" changelist="d5df5251-a8b3-4247-ae8c-c5198c00eb84" />
+        <range start1="73" end1="74" start2="72" end2="73" changelist="d5df5251-a8b3-4247-ae8c-c5198c00eb84" />
+        <range start1="76" end1="78" start2="75" end2="77" changelist="d5df5251-a8b3-4247-ae8c-c5198c00eb84" />
+        <range start1="130" end1="131" start2="129" end2="130" changelist="d5df5251-a8b3-4247-ae8c-c5198c00eb84" />
+        <range start1="140" end1="141" start2="139" end2="140" changelist="d5df5251-a8b3-4247-ae8c-c5198c00eb84" />
+        <range start1="172" end1="173" start2="171" end2="172" changelist="d5df5251-a8b3-4247-ae8c-c5198c00eb84" />
+        <range start1="217" end1="218" start2="216" end2="217" changelist="d5df5251-a8b3-4247-ae8c-c5198c00eb84" />
+        <range start1="219" end1="220" start2="218" end2="219" changelist="d5df5251-a8b3-4247-ae8c-c5198c00eb84" />
+        <range start1="244" end1="245" start2="243" end2="244" changelist="d5df5251-a8b3-4247-ae8c-c5198c00eb84" />
+        <range start1="262" end1="263" start2="261" end2="262" changelist="d5df5251-a8b3-4247-ae8c-c5198c00eb84" />
+        <range start1="272" end1="273" start2="271" end2="272" changelist="d5df5251-a8b3-4247-ae8c-c5198c00eb84" />
+        <range start1="275" end1="278" start2="274" end2="275" changelist="1e13ad2a-6c1e-4f38-ba52-b14adb371876" />
+        <range start1="285" end1="286" start2="282" end2="310" changelist="d5df5251-a8b3-4247-ae8c-c5198c00eb84" />
+        <range start1="293" end1="294" start2="317" end2="339" changelist="1e13ad2a-6c1e-4f38-ba52-b14adb371876" />
       </ranges>
     </file>
   </component>
@@ -44,7 +55,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/test/videolibrary_test.py" />
     <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
-  <component name="RunManager" selected="Python tests.Part 2 Test">
+  <component name="RunManager" selected="Python tests.Part 3 Test">
     <configuration name="Run" type="PythonConfigurationType" factoryName="Python">
       <module name="work-sample" />
       <option name="INTERPRETER_OPTIONS" value="-m src.run" />

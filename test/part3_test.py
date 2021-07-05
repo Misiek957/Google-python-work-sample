@@ -14,9 +14,8 @@ def test_search_videos_with_no_answer(capfd):
     assert "2) Another Cat Video (another_cat_video_id) [#cat #animal]" in lines[2]
     assert ("Would you like to play any of the above? If yes, "
             "specify the number of the video.") in lines[3]
-    assert (
-               "If your answer is not a valid number, we will assume "
-               "it's a no.") in lines[4]
+    assert ("If your answer is not a valid number, we will assume "
+            "it's a no.") in lines[4]
     assert "Playing video" not in out
 
 
