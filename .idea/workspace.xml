@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed3d6b41-846f-46f6-af5f-53342227dcec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/work-sample.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/work-sample.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/video.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/video.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/video_library.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/video_library.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/video_player.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/video_player.py" afterDir="false" />
+    </list>
+    <list id="9d3d66ee-2d35-4b88-a652-4d972371006f" name="Changes by Rong" comment="">
+      <change beforePath="$PROJECT_DIR$/src/video_library.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/video_library.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/video_player.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/video_player.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +18,41 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/video_library.py">
+      <ranges>
+        <range start1="18" end1="19" start2="18" end2="19" changelist="9d3d66ee-2d35-4b88-a652-4d972371006f" />
+        <range start1="28" end1="28" start2="28" end2="30" changelist="9d3d66ee-2d35-4b88-a652-4d972371006f" />
+        <range start1="34" end1="36" start2="36" end2="38" changelist="ed3d6b41-846f-46f6-af5f-53342227dcec" />
+        <range start1="46" end1="46" start2="48" end2="76" changelist="9d3d66ee-2d35-4b88-a652-4d972371006f" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/video_player.py">
+      <ranges>
+        <range start1="14" end1="15" start2="14" end2="15" changelist="ed3d6b41-846f-46f6-af5f-53342227dcec" />
+        <range start1="16" end1="16" start2="16" end2="17" changelist="9d3d66ee-2d35-4b88-a652-4d972371006f" />
+        <range start1="24" end1="24" start2="25" end2="28" changelist="9d3d66ee-2d35-4b88-a652-4d972371006f" />
+        <range start1="49" end1="49" start2="53" end2="55" changelist="ed3d6b41-846f-46f6-af5f-53342227dcec" />
+        <range start1="51" end1="51" start2="57" end2="65" changelist="9d3d66ee-2d35-4b88-a652-4d972371006f" />
+        <range start1="58" end1="58" start2="72" end2="81" changelist="9d3d66ee-2d35-4b88-a652-4d972371006f" />
+        <range start1="71" end1="76" start2="94" end2="95" changelist="9d3d66ee-2d35-4b88-a652-4d972371006f" />
+        <range start1="91" end1="92" start2="110" end2="115" changelist="9d3d66ee-2d35-4b88-a652-4d972371006f" />
+        <range start1="93" end1="94" start2="116" end2="117" changelist="9d3d66ee-2d35-4b88-a652-4d972371006f" />
+        <range start1="116" end1="117" start2="139" end2="144" changelist="9d3d66ee-2d35-4b88-a652-4d972371006f" />
+        <range start1="121" end1="122" start2="148" end2="149" changelist="9d3d66ee-2d35-4b88-a652-4d972371006f" />
+        <range start1="127" end1="128" start2="154" end2="155" changelist="9d3d66ee-2d35-4b88-a652-4d972371006f" />
+        <range start1="135" end1="136" start2="162" end2="163" changelist="ed3d6b41-846f-46f6-af5f-53342227dcec" />
+        <range start1="138" end1="139" start2="165" end2="166" changelist="9d3d66ee-2d35-4b88-a652-4d972371006f" />
+        <range start1="154" end1="155" start2="181" end2="182" changelist="ed3d6b41-846f-46f6-af5f-53342227dcec" />
+        <range start1="187" end1="187" start2="214" end2="217" changelist="9d3d66ee-2d35-4b88-a652-4d972371006f" />
+        <range start1="286" end1="286" start2="316" end2="318" changelist="9d3d66ee-2d35-4b88-a652-4d972371006f" />
+        <range start1="310" end1="311" start2="342" end2="342" changelist="9d3d66ee-2d35-4b88-a652-4d972371006f" />
+        <range start1="321" end1="321" start2="352" end2="354" changelist="9d3d66ee-2d35-4b88-a652-4d972371006f" />
+        <range start1="347" end1="348" start2="380" end2="388" changelist="9d3d66ee-2d35-4b88-a652-4d972371006f" />
+        <range start1="355" end1="356" start2="395" end2="401" changelist="ed3d6b41-846f-46f6-af5f-53342227dcec" />
+      </ranges>
+    </file>
   </component>
   <component name="ProjectId" id="1uuoAzKAbq2Whuwz8Rx7ZZR0tJ2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -27,9 +65,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/test/videolibrary_test.py" />
   </component>
-  <component name="RunManager" selected="Python tests.Part 4 Test">
+  <component name="RunManager" selected="Python tests.Part 1 Test">
     <configuration name="Run" type="PythonConfigurationType" factoryName="Python">
       <module name="work-sample" />
       <option name="INTERPRETER_OPTIONS" value="-m src.run" />
@@ -155,7 +194,7 @@
       <option name="presentableId" value="Default" />
       <updated>1625524697851</updated>
       <workItem from="1625524701277" duration="88000" />
-      <workItem from="1625524816362" duration="111000" />
+      <workItem from="1625524816362" duration="6854000" />
     </task>
     <servers />
   </component>
@@ -175,7 +214,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/work_sample$Part_1_Test.coverage" NAME="Part 1 Test Coverage Results" MODIFIED="1625524847114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/work_sample$Run.coverage" NAME="Run Coverage Results" MODIFIED="1625524829221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/work_sample$Part_1_Test.coverage" NAME="Part 1 Test Coverage Results" MODIFIED="1625531981133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/work_sample$Part_3_Test.coverage" NAME="Part 3 Test Coverage Results" MODIFIED="1625531974780" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/work_sample$Part_2_Test.coverage" NAME="Part 2 Test Coverage Results" MODIFIED="1625531977649" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/work_sample$VideoLibrary_Test.coverage" NAME="VideoLibrary Test Coverage Results" MODIFIED="1625531966199" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/work_sample$Run.coverage" NAME="Run Coverage Results" MODIFIED="1625531873851" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/work_sample$Part_4_Test.coverage" NAME="Part 4 Test Coverage Results" MODIFIED="1625531969791" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
