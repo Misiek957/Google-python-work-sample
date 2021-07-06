@@ -12,8 +12,9 @@ class VideoPlayer:
     def __init__(self):
         self._video_library = VideoLibrary()
         self._current_video_id = None  # the video_id of the playing Video object, is a string
-        self._video_stopped = False  # Boolean status variable indicating whether current video is stopped
+        self._video_paused = False  # Boolean status variable indicating whether current video is paused
         self._playlists = []  # is a List<Playlist>
+        self._number_of_allowed_videos = len(self._video_library.get_all_videos())
 
     # return video_title given video_id, none if invalid id
     def get_title(self, video_id):
@@ -22,6 +23,9 @@ class VideoPlayer:
             return None
         else:
             return currentVideoInfo.title
+
+    def get_video(self, video_id):
+        return self._video_library.get_video(video_id)
 
     def get_tags(self, video_id):  # return tags(list of string) given id
         currentVideoInfo = self._video_library.get_video(video_id)
@@ -47,7 +51,17 @@ class VideoPlayer:
             tag_string += tag + " "
         tag_string = tag_string.strip()
         result = video.title + " (" + video.video_id + ") [" + tag_string + "]"
+        if video.flagged:
+            result = result + " - FLAGGED " + "(reason: " + video.flag_reason + ")"
         return result
+
+    # returns printable format of flag reason, (reason: Not supplied) for empty reason
+    def get_flag_reason(self, video_id) -> str:
+        video = self._video_library.get_video(video_id)
+        if video.flag_reason == "":
+            return "(reason: Not supplied)"
+        else:
+            return "(reason: " + video.flag_reason + ")"
 
     @staticmethod
     def block_print():
@@ -56,6 +70,15 @@ class VideoPlayer:
     @staticmethod
     def enable_print():
         sys.stdout = sys.__stdout__
+
+    def number_of_allowed_videos(self) -> int:
+        return self._number_of_allowed_videos
+
+    def increment_number_of_allowed_videos(self):
+        self._number_of_allowed_videos += 1
+
+    def decrement_number_of_allowed_videos(self):
+        self._number_of_allowed_videos -= 1
 
     # ------------------------ ↑ customised functions ↑ -----------------------------
 
@@ -69,11 +92,7 @@ class VideoPlayer:
         print("Here's a list of all available videos:")
         all_videos = self._video_library.get_all_videos()
         for video in all_videos:
-            tagS = ""
-            for tag in video.tags:
-                tagS += tag + " "
-            tagS = tagS.strip()
-            video_string = video.title + " (" + video.video_id + ") [" + tagS + "]"  # String representation of video info
+            video_string = self.get_video_info_string(video.video_id)
             videoList.append(video_string)
         videoList = sorted(videoList)
         for videoInfo in videoList:
@@ -89,9 +108,13 @@ class VideoPlayer:
         if currentVideoInfo is None:  # if input is an invalid id
             print("Cannot play video: Video does not exist")
         else:  # if a valid video_id is input
-            if self._video_stopped:
+            if currentVideoInfo.flagged:
+                reason = self.get_flag_reason(video_id)
+                print("Cannot play video: Video is currently flagged "+reason)
+                return
+            if self._video_paused:
                 self.stop_video()
-                self._video_stopped = False
+                self._video_paused = False
             if self._current_video_id is not None:
                 self.stop_video()
             self._current_video_id = video_id
@@ -114,18 +137,22 @@ class VideoPlayer:
         for elem in VideoList:
             VideoIDList.append(elem.video_id)
         randomVideoID = random.choice(VideoIDList)
-        self.play_video(randomVideoID)
+        if self.number_of_allowed_videos() == 0:
+            print("No videos available")
+            return
+        else:
+            self.play_video(randomVideoID)
 
     def pause_video(self):
         """Pauses the current video."""
 
-        if self._video_stopped:
+        if self._video_paused:
             title = self.get_title(self._current_video_id)
             print("Video already paused: " + title)
         elif self._current_video_id is None:
             print("Cannot pause video: No video is currently playing")
         else:
-            self._video_stopped = True
+            self._video_paused = True
             title = self.get_title(self._current_video_id)
             print("Pausing video: " + title)
 
@@ -133,10 +160,10 @@ class VideoPlayer:
         """Resumes playing the current video."""
         if self._current_video_id is None:
             print("Cannot continue video: No video is currently playing")
-        elif not self._video_stopped:
+        elif not self._video_paused:
             print("Cannot continue video: Video is not paused")
         else:
-            self._video_stopped = False
+            self._video_paused = False
             print("Continuing video: " + self.get_title(self._current_video_id))
 
     def show_playing(self):
@@ -152,7 +179,7 @@ class VideoPlayer:
             tagS = tagS.strip()
             # elemVideo = elem.title + " (" + elem.video_id + ") [" + tagS + "]"
             message = "Currently playing: " + title + " (" + id + ") [" + tagS + "]"
-            if self._video_stopped:
+            if self._video_paused:
                 message += " - PAUSED"
             print(message)
 
@@ -185,6 +212,9 @@ class VideoPlayer:
             print("Cannot add video to " + playlist_name + ": Playlist does not exist")
         elif self.get_title(video_id) is None:
             print("Cannot add video to " + playlist_name + ": Video does not exist")
+        elif self.get_video(video_id).flagged:
+            print("Cannot add video to " + playlist_name + ": Video is currently flagged " + self.get_flag_reason(video_id))
+            return
         else:
             playlist = self._playlists[playlistIndex]
             if video_id in playlist.get_videos():
@@ -284,6 +314,8 @@ class VideoPlayer:
         matching_video_ids = []
         # populate matching_video_ids
         for video in all_videos:
+            if video.flagged:
+                continue
             index = video.title.upper().find(search_term.upper())
             # index = -1 if value not found
             if index != -1:
@@ -308,7 +340,6 @@ class VideoPlayer:
             # for i, video_id in enumerate(matching_video_ids):
             #     print(str(i)+") " + self.get_video_info_string(video_id))
 
-
     def search_videos_tag(self, video_tag):
         """Display all videos whose tags contains the provided tag.
 
@@ -319,6 +350,8 @@ class VideoPlayer:
         matching_video_ids = []
         # populate matching_video_ids
         for video in all_videos:
+            if video.flagged:
+                continue
             if video_tag in video.tags:
                 matching_video_ids.append(video.video_id)
         if len(matching_video_ids) == 0:
@@ -345,7 +378,14 @@ class VideoPlayer:
             video_id: The video_id to be flagged.
             flag_reason: Reason for flagging the video.
         """
-        print("flag_video needs implementation")
+        flag_success = self._video_library.flag_video(video_id, flag_reason)
+        if flag_success:
+            if self._current_video_id == video_id:
+                self.stop_video()
+            print("Successfully flagged video: " + self.get_title(video_id) + " " + self.get_flag_reason(video_id))
+            self.decrement_number_of_allowed_videos()
+        else:
+            return
 
     def allow_video(self, video_id):
         """Removes a flag from a video.
@@ -353,4 +393,9 @@ class VideoPlayer:
         Args:
             video_id: The video_id to be allowed again.
         """
-        print("allow_video needs implementation")
+        allow_success = self._video_library.allow_video(video_id)
+        if allow_success:
+            print('Successfully removed flag from video: ' + self.get_title(video_id))
+            self.increment_number_of_allowed_videos()
+        else:
+            return
